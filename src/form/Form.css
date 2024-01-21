@@ -1,0 +1,67 @@
+/* Form.css */
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+div {
+  margin-bottom: 16px;
+}
+
+/* Optional: Style for larger screens */
+@media (min-width: 600px) {
+  form {
+    max-width: 400px;
+  }
+}
+body{
+  background-color: rgb(193, 155, 239);
+}
+
+/* .form-control.invalid input{
+  color: red;
+  background-color: salmon;
+}
+
+.form-control.invalid label{
+  color: red;
+}
+
+.form-control.invalid button{
+
+  background-color: rgba(221, 96, 96, 0.829);
+} */
+
