@@ -1,13 +1,26 @@
-import React from 'react'
-import './App.css'
-import Form from './form/Form';
+import React, { useState } from 'react';
 
-const App = () => {
+import AddUser from './components/Users/AddUser';
+import UsersList from './components/Users/UsersList';
+
+function App() {
+  const [usersList, setUsersList] = useState([]);
+
+  const addUserHandler = (uName, uAge) => {
+    setUsersList((prevUsersList) => {
+      return [
+        ...prevUsersList,
+        { name: uName, age: uAge, id: Math.random().toString() },
+      ];
+    });
+  };
+
   return (
     <div>
-      <Form/>
+      <AddUser onAddUser={addUserHandler} />
+      <UsersList users={usersList} />
     </div>
-  )
+  );
 }
 
 export default App;
