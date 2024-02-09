@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,800;1,200;1,300;1,600&family=Protest+Riot&display=swap');
+
+
+
+.summary {
+    text-align: center;
+    max-width: 45rem;
+    width: 90%;
+    margin: auto;
+    margin-top: -10rem;
+    position: relative;
+    background-color: #270520;
+    
+    color: white;
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  .summary h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    width: 800px;
+    font-weight: bolder;
+    padding-right: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  p{
+    font-family: 'Poppins' ;
+  }
+
+  /* background-color: #551b2c; */

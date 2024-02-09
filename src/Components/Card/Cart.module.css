@@ -1,0 +1,71 @@
+/* Styling for the cart items list */
+.scrollable {
+  max-height: 400px; /* Adjust the max height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  list-style-type: none; /* Remove default list styles */
+}
+/* Cart.module.css */
+
+/* Styling for the cart item container */
+.cartItem {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Styling for the card image */
+.cardImg {
+  height: 200px; /* Set height of the image */
+  object-fit: cover; /* Cover the container */
+  border-radius: 50%;
+  
+}
+
+/* Styling for the card body */
+.cardBody {
+  padding: 20px;
+  background-color: #f8f9fa; /* Light gray background color */
+}
+
+/* Styling for the card title */
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight:bold;
+  color: #5b1414; /* Dark gray text color */
+}
+
+/* Styling for the card price */
+.cardPrice {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #121313; /* Blue text color */
+}
+
+/* Hover effect */
+.cartItem:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+h2{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+  padding-top: 1rem;
+}
+
+.total{
+  display: flex;
+}
+.amount{
+  margin-left: 23rem;
+  padding-top: 1.5rem;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.order{
+  float: right;
+}

@@ -1,0 +1,46 @@
+.meals {
+  max-width: 60rem;
+  width: 90%;
+  margin: 2rem auto;
+  animation: meals-appear 1s ease-out forwards;
+  margin-right: 3rem;
+}
+
+
+div ul{
+list-style: none;
+display: flex;
+flex-wrap: wrap;
+padding: 0;
+justify-content: center;
+justify-content: space-between;
+}
+
+
+@keyframes meals-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+label{
+  font-size: 22px;
+  color: rgb(88, 20, 20);
+  font-weight: bold;
+}
+input{
+  border-color: rgb(255, 0, 93);
+  color: black;
+  margin-right: 30rem;
+}
+
+Button{
+  text-align: center;
+}
+
