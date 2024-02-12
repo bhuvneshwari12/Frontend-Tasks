@@ -44,3 +44,52 @@ Button{
   text-align: center;
 }
 
+.mealul{
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.mealul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Adjust the spacing between cards */
+  padding: 0;
+}
+
+.mealul > li {
+  flex: 1;
+  margin-bottom: 2rem; /* Adjust the spacing between rows of cards */
+}
+
+.card {
+  width: 18rem;
+  margin-bottom: 2rem;
+}
+
+.card img {
+  height: 12rem; /* Adjust the height of the card image */
+  object-fit: cover; /* Ensure images maintain aspect ratio */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-size: 18px;
+  color: rgb(88, 20, 20);
+  font-weight: bold;
+}
+
+.input {
+  border-color: rgb(255, 0, 93);
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.button {
+  text-align: center;
+}

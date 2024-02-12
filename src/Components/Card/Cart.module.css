@@ -69,3 +69,11 @@ h2{
 .order{
   float: right;
 }
+/* Cart.module.css */
+
+.shiningBorder {
+  border: 2px solid transparent; /* Initially transparent border */
+  position: relative;
+  overflow: hidden;
+}
+
