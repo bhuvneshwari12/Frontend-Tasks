@@ -1,0 +1,20 @@
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust as needed */
+  } 
+
+  .navi{
+    height:4rem;
+  }
+
+  a:active{
+    background-color: rgb(212, 191, 217);
+  }
+
+  .me-auto :hover{
+    border: white solid 1px;
+  }

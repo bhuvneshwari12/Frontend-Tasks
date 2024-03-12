@@ -1,0 +1,16 @@
+.badge{
+    height: 3rem;
+    width: 8rem;
+    background-color: rgba(167, 130, 153, 0.912);
+    border-color: rgb(32, 29, 29);
+    font-weight: bolder;
+   border-radius: 5%;
+   margin-right: -3rem;
+   color: black;
+
+}
+
+.badge span{
+    font-weight: bolder;
+    font-size:x-large
+}

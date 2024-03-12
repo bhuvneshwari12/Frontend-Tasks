@@ -1,76 +1,18 @@
-/* App.css */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #a4b8dc; /* Light gray background */
-  display: flex;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  height: 100vh; /* Take the full height of the viewport */
+.app {
+  position: relative; /* Ensure relative positioning for absolute positioning within */
 }
 
-.border-box {
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 8px; /* Rounded corners for the container */
-  padding: 20px; /* Add padding */
-  background-color: #ffffff; /* White background */
-  box-shadow: 0px 0px 10px rgba(233, 215, 215, 0.664); /* Drop shadow effect */
-  width: 30rem;
-  margin-top: -7rem;
+.image-slider-container {
+  position: relative; /* Ensure relative positioning for absolute positioning within */
 }
 
-form {
-  display: flex;
-  flex-direction: column;;
+.product-array-overlay {
+  position: absolute; /* Position the ProductArray absolutely */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 12rem;
 }
 
-label {
-  margin-bottom: 5px;
-  color: #0b0b0b; /* Dark gray label text color */
-}
-
-input[type='text'],
-input[type='number'] {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 4px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-h2 {
-  margin-top: 20px;
-  color: #333; /* Dark gray header text color */
-  padding: -9rem;
-  padding-top: -6rem;
-  
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  border-bottom: 1px solid #ccc; /* Light gray bottom border for each list item */
-  padding: 10px 0;
-}
-
-li:last-child {
-  border-bottom: none;
-
-}
+/* Additional styles for ProductArray can go here */

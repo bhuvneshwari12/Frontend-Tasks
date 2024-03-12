@@ -1,0 +1,26 @@
+.login-page {
+  background-image: url('https://cdn.pixabay.com/photo/2017/03/30/18/17/girl-2189247_1280.jpg');
+  background-size: cover;
+  height: 44rem;
+  display: flex;
+  align-items: center;
+  opacity:calc(0.9)
+}
+
+.login-form-container {
+  background-color: rgba(203, 129, 129, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.toggle{
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #201f21;
+  border: none;
+  padding: 0.15rem 1.5rem;
+}
+.toggle :hover{
+  background-color:rgb(199, 36, 36);
+  color: #be3644;
+}

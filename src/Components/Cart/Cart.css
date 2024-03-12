@@ -1,0 +1,30 @@
+/* CSS for Cart component */
+.cart-container {
+    max-height: 500px; /* Set maximum height for scroll */
+    overflow-y: auto; /* Enable vertical scroll */
+    display: flex;
+    flex-direction:column; /* Stack cards vertically */
+    align-items: center; /* Center cards horizontally */
+    padding: 0 20px; /* Adjust padding as needed */
+  }
+  
+  .cart-container ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin-bottom: 2rem;
+    
+  }
+  
+  .cart-container li {
+    margin-bottom: 20px; /* Add margin between cards */
+  }
+  
+  /* Additional styling for the Card component */
+  .card {
+    width: 18rem;
+  }
+  
+  .total{
+    display: flex;
+    height: 9px;
+  }

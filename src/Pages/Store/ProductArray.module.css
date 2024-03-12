@@ -1,0 +1,17 @@
+.card {
+margin-top: 5rem;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 11px rgb(101, 195, 157);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .title{
+    color: black;
+    text-decoration:underline;
+      }
+
+      .title :hover{
+        background-color: blueviolet;
+      }
