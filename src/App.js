@@ -1,59 +1,39 @@
-import React, { useContext, useState } from "react";
-import "./App.css";
-import Cart from "./Components/Cart/Cart";
-import {  Route } from "react-router-dom";
-import Store from './Pages/Store/Store'
-import Navigation from "./Components/Navigation/Navigation";
-import About from "./Pages/About/About";
-import Contact from "./Pages/ContactUs/Contact";
-import ProductDetails from "./Pages/productdetails/ProductDetails";
-import LoginPage from "./Pages/LoginPage/LoginPage";
-import { AuthContext } from "./Components/Context/AuthContext";
-import { Redirect } from "react-router-dom";
+import React, { useContext, useState } from 'react'
+import AuthForm from './Components/Pages/Authform/AuthForm'
+import Navbar from './Components/Navigation/Navbar';
+import { Route } from 'react-router-dom';
+import Cart from './Components/Cart/Cart';
 
+import ExpenseTracker from './Components/Pages/ExpenseTracker/ExpenseTracker';
+import { AuthContext } from './Components/Store/AuthContext';
+import CompleteProfile from './Components/Pages/CompleteProfile/CompleteProfile';
+import ForgotPassword from './Components/Pages/ForgotPassword/ForgotPassword';
 
 const App = () => {
+  const authctx=useContext(AuthContext)
+  const [showCart,setShowCart]=useState(false)
 
-  const authctx = useContext(AuthContext)
-  const [showCart, setShowCart] = useState(false);
-
-  const cartShowHandler = (event) => {
-    event.preventDefault()
+  const cartShowHandler=(event)=>{
+    event.preventDefault();
     setShowCart(true);
-  };
-  const cartCloseHandler = () => {
+  }
+  const cartCloseHandler=()=>{
     setShowCart(false);
-  };
+  }
 
   return (
-   
-    <>
+    <div>
+    <Navbar cartShowHandler={cartShowHandler}  >
+       {authctx.isLoggedIn &&  showCart && <Cart cartCloseHandler={cartCloseHandler}/>}
+       {authctx.isLoggedIn && <Route path='/' exact><ExpenseTracker/></Route> }
+      {!authctx.isLoggedIn && <Route path='/auth' ><AuthForm  /></Route>}
+       {authctx.isLoggedIn &&  <Route path='/completeprofile'> <CompleteProfile/></Route>}
+     { !authctx.isLoggedIn && <Route path='/forgot'><ForgotPassword/></Route>}
+      
+ </Navbar>
+  
+    </div>
+  )
+}
 
-    <main>
-      <Navigation cartShowHandler={cartShowHandler} >
-
-        <Route path="/" exact>  <Redirect to="/login" /> </Route>
-
-        <Route path="/store" exact>
-          {authctx.isLoggedIn ? (
-            <div>
-              <Store cartShowHandler={cartShowHandler} />
-              {showCart && <Cart cartCloseHandler={cartCloseHandler} />}
-            </div>
-          ) : ( <Redirect to='/login' /> )}
-        </Route>
-
-        <Route path='/store/:productid'>{authctx.isLoggedIn && <ProductDetails />}</Route>
-
-        <Route path="/about" >{authctx.isLoggedIn && <About />}</Route>
-        <Route path="/contact">{authctx.isLoggedIn && <Contact />}</Route>
-        <Route path="/login"><LoginPage /></Route>
-
-      </Navigation>
-
-    </main>
-
-    </>
-  );
-};
 export default App;

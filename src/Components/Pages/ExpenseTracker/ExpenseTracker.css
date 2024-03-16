@@ -1,0 +1,29 @@
+.user {
+    margin-top: 10rem;
+    text-decoration: dotted;
+    font-size: 3rem;
+
+}
+
+.complete {
+    background-color: transparent;
+    color: #9f5ccc;
+    border: none;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.profile {
+    display: flex;
+}
+
+.verify{
+    margin-left: 40rem;
+    margin-bottom: 4rem;
+}
+
+/* .fiv{
+    margin-top: -3.6rem;
+} */
+

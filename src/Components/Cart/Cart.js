@@ -1,39 +1,37 @@
-import Modal from "../Modal/Modal";
-import React, { useContext } from "react";
-import Card from "react-bootstrap/Card";
-import CartContext from "../Context/CartContext";
+import React, { useContext, useRef } from 'react'
+import Modal from './Modal'
 import './Cart.css'
+import { AuthContext } from '../Store/AuthContext'
 
 const Cart = (props) => {
-  const ctx=useContext(CartContext)
-  const list=ctx.items
+    let newPasswordRef=useRef()
+    const authctx=useContext(AuthContext)
 
-  return (
-    <Modal cartCloseHandler={props.cartCloseHandler}>
-     <div className="cart-container">
-     <ul>
-        {list.map((goods) => (
-          <li >
-            <Card className="card">
-             <img src={goods.image}></img>
-              <Card.Body>
-                <Card.Title>{goods.title}</Card.Title>
-                <Card.Text>${goods.price}</Card.Text>
-                <Card.Text>quantity: {goods.quantity}</Card.Text>
-              </Card.Body>
-            </Card>
-          </li>    
-          
-        ))}
-      </ul>
-      <div className="total">
-        <h2>Total Amount:</h2>
-        <h2>${ctx.totalPrice.toFixed(1)}</h2>
-      </div>
-     </div>
-     
-    </Modal>
-    
-  );
-};
+    const handleSubmit=(event)=>{
+        event.preventDefault();
+        console.log('hellooo')
+        const enteredNewPassword=newPasswordRef.current.value;
+
+        fetch('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDXnYnPZvWmQikMTjFhQ4x2VjbehYit0xo',{
+            method:'POST',
+            body:JSON.stringify({idToken:authctx.token, password:enteredNewPassword,returnSecureToken:false}),
+            headers : { 'Content-Type' : 'application/json'}
+        })
+        .then(res=> console.log(res))
+    }
+
+    return (
+        <Modal cartCloseHandler={props.cartCloseHandler}>
+            <form onSubmit={handleSubmit}>
+                <h2>Reset Password</h2>
+
+                <label>NewPassword:</label>
+                <input type='text' ref={newPasswordRef} required/>
+
+                <button type='submit' className='submitb'>Submit</button>
+            </form>
+        </Modal>
+    )
+}
+
 export default Cart;
