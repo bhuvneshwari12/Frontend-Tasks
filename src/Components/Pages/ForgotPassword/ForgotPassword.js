@@ -17,9 +17,6 @@ const ForgotPassword = () => {
             alert('verification link send')
         })
         .catch(error => alert(error));
-
-
-        
     };
 
     return (
