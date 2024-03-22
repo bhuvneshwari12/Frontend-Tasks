@@ -1,15 +1,13 @@
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import AuthContextProvider from './Components/Store/AuthContext';
+import { Provider } from 'react-redux';
+import store from './Store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AuthContextProvider>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-  </AuthContextProvider>
+<Provider store={store}> 
+<App />
+</Provider>
 );

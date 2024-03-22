@@ -1,39 +1,59 @@
-import React, { useContext, useState } from 'react'
-import AuthForm from './Components/Pages/Authform/AuthForm'
-import Navbar from './Components/Navigation/Navbar';
-import { Route } from 'react-router-dom';
-import Cart from './Components/Cart/Cart';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
+import Notification from './components/UI/Notification'; //Notificationfile
+import { postCartData ,fetchCartData } from './Store/store';
 
-import ExpenseTracker from './Components/Pages/ExpenseTracker/ExpenseTracker';
-import { AuthContext } from './Components/Store/AuthContext';
-import CompleteProfile from './Components/Pages/CompleteProfile/CompleteProfile';
-import ForgotPassword from './Components/Pages/ForgotPassword/ForgotPassword';
 
-const App = () => {
-  const authctx=useContext(AuthContext)
-  const [showCart,setShowCart]=useState(false)
+let isInitial = true;
 
-  const cartShowHandler=(event)=>{
-    event.preventDefault();
-    setShowCart(true);
-  }
-  const cartCloseHandler=()=>{
-    setShowCart(false);
-  }
+function App() {
+  const dispatch = useDispatch();
+  const showCart = useSelector(state => state.ui.cartIsVisible);
+  const notification = useSelector((state) => state.ui.notification);
+
+  const cart = useSelector((state) => state.cart);
+
+
+  useEffect(() => {
+    if (isInitial) {    //false
+      isInitial = false; 
+      console.log(isInitial ,"FIRST TIME NO DATA POSTED")
+      return; 
+    }
+    console.log("sendCart Data works after FetchCartData")
+    dispatch(postCartData(cart));   //data post 
+  
+  }, [cart,dispatch]);
+
+
+  useEffect(() => {
+    console.log("FECTH IN APP.JS IS RUNNING ")
+    dispatch(fetchCartData());
+  }, [dispatch]);
+  
+  //useEffect - mount , unmount , changes 
+
 
   return (
-    <div>
-    <Navbar cartShowHandler={cartShowHandler}  >
-       {authctx.isLoggedIn &&  showCart && <Cart cartCloseHandler={cartCloseHandler}/>}
-       {authctx.isLoggedIn && <Route path='/' exact><ExpenseTracker/></Route> }
-      {!authctx.isLoggedIn && <Route path='/auth' ><AuthForm  /></Route>}
-       {authctx.isLoggedIn &&  <Route path='/completeprofile'> <CompleteProfile/></Route>}
-     { !authctx.isLoggedIn && <Route path='/forgot'><ForgotPassword/></Route>}
-      
- </Navbar>
-  
-    </div>
-  )
+    <>
+    {notification && (
+      <Notification
+        status={notification.status}
+        title={notification.title}
+        message={notification.message}
+      />
+    )}
+
+    <Layout>
+     { showCart && <Cart />}
+      <Products />
+    </Layout>
+
+    </>
+  );
 }
 
 export default App;
