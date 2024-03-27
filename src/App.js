@@ -1,59 +1,34 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Cart from './components/Cart/Cart';
-import Layout from './components/Layout/Layout';
-import Products from './components/Shop/Products';
-import Notification from './components/UI/Notification'; //Notificationfile
-import { postCartData ,fetchCartData } from './Store/store';
+import React, { useContext } from 'react'
+import AuthPage from './Pages/AuthForm/AuthPage'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MailBoxPage from './Pages/MailBox/MailBoxPage';
+import { Redirect, Route } from 'react-router-dom/cjs/react-router-dom.min';
+import { AuthContext } from './Store/AuthContext';
+import Inbox from './Pages/InputPage/Inbox';
+import MessageDetail from './Pages/MessageDetail/MessageDetail';
+import SideBar from './SideBar/SideBar';
+import Sent from './Pages/SentPage/Sent';
+import SentDetail from './Pages/SentPageDetail/SentDetail';
 
 
-let isInitial = true;
-
-function App() {
-  const dispatch = useDispatch();
-  const showCart = useSelector(state => state.ui.cartIsVisible);
-  const notification = useSelector((state) => state.ui.notification);
-
-  const cart = useSelector((state) => state.cart);
-
-
-  useEffect(() => {
-    if (isInitial) {    //false
-      isInitial = false; 
-      console.log(isInitial ,"FIRST TIME NO DATA POSTED")
-      return; 
-    }
-    console.log("sendCart Data works after FetchCartData")
-    dispatch(postCartData(cart));   //data post 
-  
-  }, [cart,dispatch]);
-
-
-  useEffect(() => {
-    console.log("FECTH IN APP.JS IS RUNNING ")
-    dispatch(fetchCartData());
-  }, [dispatch]);
-  
-  //useEffect - mount , unmount , changes 
-
-
+const App = () => {
+  const authctx = useContext(AuthContext)
   return (
-    <>
-    {notification && (
-      <Notification
-        status={notification.status}
-        title={notification.title}
-        message={notification.message}
-      />
-    )}
-
-    <Layout>
-     { showCart && <Cart />}
-      <Products />
-    </Layout>
-
-    </>
-  );
+    <div>
+      <header>
+        {authctx.isLoggedIn && <SideBar/>}
+      </header>
+      <main>
+      <Route path='/' exact >{!authctx.isLoggedIn ? <AuthPage /> : <Redirect to='/mailbox' />}</Route>
+      <Route path='/auth' exact >{!authctx.isLoggedIn ? <AuthPage /> : <Redirect to='/mailbox' />}</Route>
+      <Route path='/mailbox'>{authctx.isLoggedIn ? <MailBoxPage /> : <Redirect to='/auth' />}</Route>
+      <Route path='/inbox' exact>{authctx.isLoggedIn ? <Inbox /> : <Redirect to='/auth' />}</Route>
+      <Route path='/inbox/:id' exact>{authctx.isLoggedIn ? <MessageDetail /> : <Redirect to='/auth' />}</Route>
+      <Route path='/sent' exact>{authctx.isLoggedIn ? <Sent/> : <Redirect to='/auth' />}</Route>
+      <Route path='/sent/:id' exact>{authctx.isLoggedIn ? <SentDetail/> : <Redirect to='/auth' />}</Route>
+      </main>
+    </div>
+  )
 }
 
 export default App;

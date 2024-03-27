@@ -1,0 +1,41 @@
+/* Sidebar.css */
+
+.sidebar {
+    width: 200px;
+    background-color: #c0c5ea;
+    padding: 20px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 10px 0;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-link:hover {
+    background-color: #ddd;
+}
+
+/* Optional: Active link styling */
+.sidebar-link.active {
+    background-color: #ddd;
+    font-weight: bold;
+}

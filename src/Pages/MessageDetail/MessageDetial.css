@@ -1,0 +1,35 @@
+.message-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 4rem;
+    background-color: rgb(191, 191, 195);
+    padding: 20px;
+  }
+  
+  .message-details {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .message-details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .message-details div {
+    margin-bottom: 10px;
+  }
+  
+  .message-details div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .message-details div span {
+    font-weight: bold;
+  }
+  
+  .loading {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+  }
+  
